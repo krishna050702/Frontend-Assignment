@@ -1,14 +1,11 @@
-import {Box, Button, Grid, GridItem, Textarea, useMediaQuery} from "@chakra-ui/react";
+import { Box, Button, Grid, GridItem, Text, Textarea, useMediaQuery, Spinner } from "@chakra-ui/react";
 import DynamicForm from "./DynamicForm";
 import Header from "./Header";
-
-// FormContext.jsx
 import { useState } from "react";
 import { useFormContext } from "./FormContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-//toast notification for changes
 const toastOptions = {
   position: "bottom-right",
   autoClose: 2000,
@@ -21,11 +18,11 @@ const toastOptions = {
 };
 
 const Home = () => {
-  const [inputValue, setInputValue] = useState();
+  const [inputValue, setInputValue] = useState("");
   const [formSchema, setFormSchema] = useState([]);
-  const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 760px)");
+  const [loading, setLoading] = useState(true);
 
-  // Styling based on mobile view
   const leftSideStyles = isMobile
     ? { height: "50vh", overflowY: "scroll" }
     : { height: "100vh" };
@@ -34,13 +31,16 @@ const Home = () => {
     ? { height: "50vh", overflowY: "scroll" }
     : { height: "100vh", overflowY: "scroll" };
 
-  // Input change handler
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
     try {
       const parsedFields = JSON.parse(e.target.value);
       if (Array.isArray(parsedFields)) {
-        setFormSchema(parsedFields);
+        setLoading(true);
+        setTimeout(() => {
+          setFormSchema(parsedFields);
+          setLoading(false);
+        }, 250);
       }
     } catch (error) {
       toast.error("Invalid Form Schema", toastOptions);
@@ -49,7 +49,6 @@ const Home = () => {
 
   const { handleResetData } = useFormContext();
 
-  // Reset handler
   const handleReset = () => {
     setFormSchema([]);
     setInputValue("");
@@ -57,7 +56,6 @@ const Home = () => {
     toast.success("Form Reset Successfully", toastOptions);
   };
 
-  // JSX structure of the component
   return (
     <>
       <Header />
@@ -77,17 +75,32 @@ const Home = () => {
         </GridItem>
 
         <GridItem {...rightSideStyles} height={"85vh"} overflow={"auto"} marginLeft={2} marginRight={2}>
-          {formSchema.length > 0 && (
-            <>
+          {loading ? (
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              justifyContent="center"
+              height="100%"
+            >
+              <Text color="gray.500" fontSize="lg" mb={4}>
+                Enter the schema to see the output
+              </Text>
+              <Spinner size="lg" color="blue.500" />
+            </Box>
+          ) : (
+            formSchema.length > 0 && (
               <Box borderWidth="1px" borderRadius="lg" p={4}>
                 <DynamicForm formSchema={formSchema} />
                 <Box
-                  style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                  style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+                >
                   <Button colorScheme="blue" marginTop={"10px"} onClick={handleReset}>
-                    Reset </Button>
+                    Reset{" "}
+                  </Button>
                 </Box>
               </Box>
-            </>
+            )
           )}
         </GridItem>
       </Grid>

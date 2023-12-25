@@ -55,7 +55,7 @@ const DynamicForm = ({ formSchema }) => {
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>JSON to be sent to the backend</ModalHeader>
+          <ModalHeader textAlign={"center"}>JSON forwaded to Backend</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Box>
