@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Dynamic Form Maker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Live Website: 
 
-## Available Scripts
+### Problem Statement:-
+You have to create a React application that will allow users to paste a UI schema on the left side and preview the rendered form on the right-hand side. The application will have a single screen which will be divided into two equal sections next to each other. On the left section will be a JSON editor to paste the UI-Schema. On the right section, a form will be automatically rendered based on the pasted UI-Schema.
 
-In the project directory, you can run:
 
-### `npm start`
+#### Example form JSON Schema 1: https://drive.google.com/file/d/1RUU_ueF9BbQRLReuX88w8PWe2jsz3Z3C/view
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Example form JSON Schema 2: https://drive.google.com/file/d/19_E6dSDUbiDR31wNSSvUARHxh1HeT6L4/view
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Frontend:** React, JavaScript, Chakra UI
 
-### `npm run build`
+## Project Description
+    The React application will have two main components: the JSON editor component and the form preview component. The JSON editor component will allow users to paste the UI-Schema in JSON format on the left-hand side. The form preview component will automatically render the form based on the pasted UI-Schema and display it on the right-hand side.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features - (JSON Editor)
+    - Ability to detect changes in the pasted JSON and update the form preview component in real-time.
+    - Validation of the UI-Schema to ensure that it follows the required structure and properties.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features - (Form Preview)
+    - Automatically render the form based on the pasted UI-Schema.
+    - Dynamically update the form based on changes in the UI-Schema in the JSON editor component.
+    - Handle different field types such as text input, radio, switch, group, etc., and render them accordingly with their respective properties.
+    - Handle nested fields inside groups and show/hide them based on the user's interaction with the form.
+    - Show tooltips for fields with descriptions when hovered.
+    - Handle form submissions and show the form data to the user which is going to send to the backend using the jsonKey values as keys and the entered values as values.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
+    These instructions will help you set up and run the project on your local machine for development and testing purposes.
 
-### `npm run eject`
+## Prerequisites
+- Node.js (v14.x.x or higher recommended)
+- npm (v6.x.x or higher recommended)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    1. Clone the repository
+```bash
+  git clone 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    2. Install dependencies 
+```bash
+  cd Frontend-Assignment
+  npm install
+```
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    3. Start the development server
+```bash
+  npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    This will run the app in development mode. Open http://localhost:3000 to view it in the browser. The page will reload if you make edits.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Demo
 
-### Analyzing the Bundle Size
+Insert gif or link to demo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+### Let's connect on linkedin
+[Krishna Mundada](https://www.linkedin.com/in/krishna-mundada/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
