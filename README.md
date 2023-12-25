@@ -41,7 +41,7 @@ You have to create a React application that will allow users to paste a UI schem
 
     1. Clone the repository
 ```bash
-  git clone 
+  git clone https://github.com/krishna050702/Frontend-Assignment.git
 
 ```
 
